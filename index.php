@@ -90,5 +90,10 @@ displayXHProfReport($xhprof_runs_impl, $params, $source, $run, $wts,
                     $symbol, $sort, $run1, $run2);
 ?>
 
+	<!-- Documents -->
+	<?php if( empty($dir) ): ?>
+		<iframe src="docs/index.html" style="width:99%; height:100%;"></iframe>
+	<?php endif; ?>
+
 	</body>
 </html>
