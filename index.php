@@ -95,5 +95,23 @@ displayXHProfReport($xhprof_runs_impl, $params, $source, $run, $wts,
 		<iframe src="docs/index.html" style="width:99%; height:100%;"></iframe>
 	<?php endif; ?>
 
+	<!-- xhprof -->
+	<?php if( $dir ?? null ): ?>
+
+		<!-- Form -->
+		<form name="filter">
+			PHP       : <select name="php"></select>
+			End Point : <select name="end"></select>
+			URL       : <input  name="uri" type="text"  value="" />
+		</form>
+
+		<!-- List -->
+		<ul id="list"></ul>
+
+		<!-- Catalog -->
+		<div id="catalog"><?= file_get_contents($dir . '/index.json') ?></div>
+		<script>Catalog();</script>
+
+	<?php endif; ?>
 	</body>
 </html>
