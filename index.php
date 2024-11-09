@@ -76,18 +76,28 @@ foreach ($params as $k => $v) {
 	<body>
 
 <?php
-//	...
+/*
 $vbar  = ' class="vbar"';
 $vwbar = ' class="vwbar"';
 $vwlbar= ' class="vwlbar"';
 $vbbar = ' class="vbbar"';
 $vrbar = ' class="vrbar"';
 $vgbar = ' class="vgbar"';
+*/
+foreach( ['vbar','vwbar','vwlbar','vbbar','vrbar','vgbar'] as $key ){
+	${$key} = " class=\"{$key}\"";
+}
 
-/* @var $dir string */
+/* @var $dir    string */
+/* @var $source null   */
+/* @var $run    null   */
+/* @var $wts    null   */
+/* @var $symbol null   */
+/* @var $sort   null   */
+/* @var $run1   null   */
+/* @var $run2   null   */
 $xhprof_runs_impl = new XHProfRuns_Default($dir);
-displayXHProfReport($xhprof_runs_impl, $params, $source, $run, $wts,
-                    $symbol, $sort, $run1, $run2);
+displayXHProfReport($xhprof_runs_impl, $params, $source, $run, $wts, $symbol, $sort, $run1, $run2);
 ?>
 
 	<!-- Documents -->
