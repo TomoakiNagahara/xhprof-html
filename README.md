@@ -41,4 +41,5 @@ echo file_put_contents($path, $pson) ? 'Success': 'Failed';
 
 # Other xhprof visualization tools
 
-You can find other visualization tools on [GitHub Topics](https://github.com/topics/xhprof?o=desc&s=stars)!
+ * You can find other visualization tools on [GitHub Topics](https://github.com/topics/xhprof?o=desc&s=stars)
+ * [tideways/download](https://tideways.com/profiler/downloads)
