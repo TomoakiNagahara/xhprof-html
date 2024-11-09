@@ -73,3 +73,51 @@ function Catalog(){
 	Filter();
 };
 
+/** Filter
+ *
+ * @created    2024-11-09
+ * @version    1.0
+ * @package    xhprof-html
+ * @author     Tomoaki Nagahara <tomoaki.nagahara@gmail.com>
+ * @copyright  Tomoaki Nagahara All right reserved.
+ */
+function Filter(){
+	let json = GetCatalog();
+	let php  = $('form[name="filter"] select[name="php"]').val();
+	let end  = $('form[name="filter"] select[name="end"]').val();
+	var url  = new URL(window.location.href);
+		url.searchParams.set('source', 'xhprof');
+
+	//	...
+	let list = $("#list");
+		list.empty();
+
+	//	...
+	for(let hash in json ){
+		let data =  json[hash];
+
+		//	...
+		if( php ){
+			if( php != data['php'] ){
+				continue;
+			}
+		}
+
+		//	...
+		if( end ){
+			if( end != data['endpoint'] ){
+				continue;
+			}
+		}
+
+		//	...
+		url.searchParams.set('run', hash);
+
+		//	...
+		let a  = $(`<a href="">${data['uri']}</a>`);
+			a.attr('href', url.toString());
+		let li = $('<li></li>');
+			li.append(a);
+		list.append(li);
+	}
+};
