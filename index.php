@@ -66,26 +66,29 @@ foreach ($params as $k => $v) {
   }
 }
 
-echo "<html>";
+?>
+<html>
+	<head>
+		<title>XHProf: Hierarchical Profiler Report</title>
+		<?php xhprof_include_js_css() ?>
+		<script src='js/catalog.js'></script>
+	</head>
+	<body>
 
-echo "<head><title>XHProf: Hierarchical Profiler Report</title>";
-xhprof_include_js_css();
-echo "</head>";
-
-echo "<body>";
-
+<?php
+//	...
 $vbar  = ' class="vbar"';
 $vwbar = ' class="vwbar"';
-$vwlbar = ' class="vwlbar"';
+$vwlbar= ' class="vwlbar"';
 $vbbar = ' class="vbbar"';
 $vrbar = ' class="vrbar"';
 $vgbar = ' class="vgbar"';
 
+/* @var $dir string */
 $xhprof_runs_impl = new XHProfRuns_Default($dir);
-
 displayXHProfReport($xhprof_runs_impl, $params, $source, $run, $wts,
                     $symbol, $sort, $run1, $run2);
+?>
 
-
-echo "</body>";
-echo "</html>";
+	</body>
+</html>
